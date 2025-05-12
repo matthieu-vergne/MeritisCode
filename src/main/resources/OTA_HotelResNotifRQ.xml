@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:OTA_HotelResNotifRQ PrimaryLangID="EN"
+	ResStatus="Book" TimeStamp="2001-12-31T12:00:00" Version="0.0"
+	xmlns:p="http://www.opentravel.org/OTA/2003/05"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.opentravel.org/OTA/2003/05 2024A-1.0-Publication/OpenTravel_2024A_XML/OTA_HotelResNotifRQ.xsd ">
+	<p:HotelReservations>
+		<p:HotelReservation>
+			<p:UniqueID ID="abc123xyz" Type="123">
+			</p:UniqueID>
+			<p:RoomStays>
+				<p:RoomStay>
+					<p:RoomRates>
+						<p:RoomRate RoomID="1205">
+							<p:Rates>
+								<p:Rate Duration="P3D">
+									<p:Base AmountBeforeTax="100.0">
+										<p:Taxes Amount="20.0" />
+									</p:Base>
+									<p:Fees>
+										<p:Fee Amount="12.0" />
+									</p:Fees>
+									<p:Discount AmountBeforeTax="5.0">
+										<p:Taxes Amount="1.0" />
+										<p:DiscountReason />
+									</p:Discount>
+								</p:Rate>
+							</p:Rates>
+						</p:RoomRate>
+					</p:RoomRates>
+				</p:RoomStay>
+			</p:RoomStays>
+			<p:ResGuests>
+				<p:ResGuest>
+					<p:Profiles>
+						<p:ProfileInfo>
+							<p:Profile>
+								<p:Customer>
+									<p:PersonName>
+										<p:GivenName>John</p:GivenName>
+										<p:Surname>Doe</p:Surname>
+									</p:PersonName>
+									<p:Address>
+										<p:AddressLine>243 4th Ave</p:AddressLine>
+										<p:CityName>Chicago</p:CityName>
+										<p:StateProv>IL</p:StateProv>
+									</p:Address>
+								</p:Customer>
+							</p:Profile>
+						</p:ProfileInfo>
+					</p:Profiles>
+				</p:ResGuest>
+			</p:ResGuests>
+		</p:HotelReservation>
+	</p:HotelReservations>
+</p:OTA_HotelResNotifRQ>
