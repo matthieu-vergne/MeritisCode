@@ -5,25 +5,72 @@
 	<groupId>fr.vergne</groupId>
 	<artifactId>MeritisCode</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>hello2morrow.maven.repository</id>
-			<url>https://maven.hello2morrow.com/repository</url>
-		</pluginRepository>
-	</pluginRepositories>
+	<packaging>jar</packaging>
+	<name>MeritisCode</name>
+	<description>Experimental project for various stuff.</description>
+	<inceptionYear>2024</inceptionYear>
+	<url>https://github.com/matthieu-vergne/MeritisCode</url>
+
+	<scm>
+		<connection>scm:git:git://github.com/matthieu-vergne/MeritisCode.git</connection>
+		<developerConnection>
+			scm:git:githubMatthieu:matthieu-vergne/MeritisCode.git</developerConnection>
+		<url>scm:git:git://github.com/matthieu-vergne/MeritisCode.git</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/matthieu-vergne/MeritisCode/issues/</url>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>CC0</name>
+			<url>http://creativecommons.org/publicdomain/zero/1.0/</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Matthieu Vergne</name>
+			<email>matthieu_DOT_vergne@(nospam)gmail_DOT_com</email>
+			<url>https://github.com/matthieu-vergne</url>
+		</developer>
+	</developers>
+
+	<properties>
+		<maven.compiler.release>21</maven.compiler.release>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- VERSIONS -->
+		<hamcrest.version>3.0</hamcrest.version>
+		<hibernate-community-dialects.version>6.6.4.Final</hibernate-community-dialects.version>
+		<hibernate-core.version>6.6.4.Final</hibernate-core.version>
+		<jackson-databind.version>2.19.0</jackson-databind.version>
+		<jackson-dataformat-xml.version>2.19.0</jackson-dataformat-xml.version>
+		<jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
+		<junit-jupiter.version>5.11.4</junit-jupiter.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<mockito-core.version>5.15.2</mockito-core.version>
+		<pitest-junit5-plugin.version>1.2.1</pitest-junit5-plugin.version>
+		<pitest-maven.version>1.17.3</pitest-maven.version>
+		<sqlite-jdbc.version>3.47.1.0</sqlite-jdbc.version>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<release>21</release>
+					<release>${maven.compiler.release}</release>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.12</version>
+				<version>${jacoco-maven-plugin.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -42,7 +89,7 @@
 			<plugin>
 				<groupId>org.pitest</groupId>
 				<artifactId>pitest-maven</artifactId>
-				<version>1.17.3</version>
+				<version>${pitest-maven.version}</version>
 				<configuration>
 					<!--
 					<mutators>ALL</mutators>
@@ -52,48 +99,9 @@
 					<dependency>
 						<groupId>org.pitest</groupId>
 						<artifactId>pitest-junit5-plugin</artifactId>
-						<version>1.2.1</version>
+						<version>${pitest-junit5-plugin.version}</version>
 					</dependency>
 				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>com.hello2morrow</groupId>
-				<artifactId>sonargraph-maven-plugin</artifactId>
-				<version>15.0.0</version>
-				<configuration>
-					<systemDirectory>crm-domain-example.sonargraph</systemDirectory>
-					<!--
-					<activationCode>6572-1B4F-9C47-1911</activationCode>
-					-->
-					<autoUpdate>true</autoUpdate>
-					<failSet>
-						<failOnEmptyWorkspace>true</failOnEmptyWorkspace>
-						<includes>
-							<include>
-								<issueType>ArchitectureViolation</issueType>
-							</include>
-							<include>
-								<issueType>any</issueType>
-								<severity>error</severity>
-							</include>
-						</includes>
-						<excludes>
-							<exclude>
-								<issueType>ScriptCompilationError</issueType>
-								<resolution>none</resolution>
-							</exclude>
-						</excludes>
-					</failSet>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>create-report</goal>
-							<goal>dynamic-report</goal>
-							<goal>create-or-update-system</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -120,51 +128,45 @@
 		<dependency>
 			<groupId>org.xerial</groupId>
 			<artifactId>sqlite-jdbc</artifactId>
-			<version>3.47.1.0</version>
+			<version>${sqlite-jdbc.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate.orm</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>6.6.4.Final</version>
-		</dependency>
-        <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-community-dialects</artifactId>
-            <version>6.6.4.Final</version>
-        </dependency>
-        <dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.19.0</version>
+			<version>${hibernate-core.version}</version>
 		</dependency>
 		<dependency>
-		    <groupId>com.fasterxml.jackson.dataformat</groupId>
-		    <artifactId>jackson-dataformat-xml</artifactId>
-		    <version>2.19.0</version>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-community-dialects</artifactId>
+			<version>${hibernate-community-dialects.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-databind.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>${jackson-dataformat-xml.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>5.11.4</version>
+			<version>${junit-jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest</artifactId>
-			<version>3.0</version>
+			<version>${hamcrest.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>5.15.2</version>
+			<version>${mockito-core.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!--		<dependency>-->
-		<!--			<groupId>org.mockito</groupId>-->
-		<!--			<artifactId>mockito-junit-jupiter</artifactId>-->
-		<!--			<version>5.15.2</version>-->
-		<!--			<scope>test</scope>-->
-		<!--		</dependency>-->
 	</dependencies>
 </project>
